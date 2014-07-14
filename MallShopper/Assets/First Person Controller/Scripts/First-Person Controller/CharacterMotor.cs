@@ -12,10 +12,6 @@ using System.Collections.Generic;
 
 public class CharacterMotor : MonoBehaviour
 {
-    private GameObject lastCol;
-    private AudioSource a;
-    private float counter = 0.0f;
-
     // Does this script currently respond to input?
     bool canControl = true;
     bool useFixedUpdate = true;
@@ -385,11 +381,6 @@ public class CharacterMotor : MonoBehaviour
 
     void Update()
     {
-        counter--;  
-        if(a!=null && a.isPlaying && counter < 0.0f) {
-            a.Stop();
-            Debug.Log("stop");
-        }
         if(!useFixedUpdate)
             UpdateFunction();
     }
@@ -533,23 +524,8 @@ public class CharacterMotor : MonoBehaviour
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(hit.gameObject.tag!="EditorOnly" && hit.gameObject!=lastCol) {
-            if(hit.gameObject.tag!="Respawn") {
-                a = GameObject.Find("AUDIO thump1").GetComponent<AudioSource>();
-            }
-            else {
-                a = GameObject.Find("AUDIO thump2").GetComponent<AudioSource>();
-                a.pitch = Random.Range(-1.5f,1.5f);
-                Debug.Log(a.pitch);
-            }
-            a.audio.Play();
-            lastCol = hit.gameObject;
-            Debug.Log(hit.gameObject);
-            counter = 50.0f;
-        }
         if(hit.normal.y > 0 && hit.normal.y > groundNormal.y && hit.moveDirection.y < 0)
         {
-            
             if((hit.point - movement.lastHitPoint).sqrMagnitude > 0.001 || lastGroundNormal == Vector3.zero)
                 groundNormal = hit.normal;
             else
