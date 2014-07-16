@@ -1,0 +1,63 @@
+GUI Flow
+
+note: to go up a tier, simply swipe back
+
+display off
+	- tap or nod ->
+		display On, 
+		money spent in top right corner (always visible)
+			- swipe forward once ->
+				list view
+					- scroll up/down ->
+						each item in the list gets highlighted
+							- tap item ->
+								open options for that item
+									- scroll up/down ->
+										- tap remove ->
+											removes item
+										- tap find ->
+											list of stores
+												- scroll up/down ->
+													go through stores/price range
+														- tap ->
+															open map view with homing
+																- arrive at store ->
+																	find (item) in (store)?
+																		- tap ->
+																			continue homing
+										- tap sales ->
+											turns on ambient sale noise for that item
+					- scroll to bottom -> 
+						add new item option
+							- tap ->
+								list of categories
+									- scroll up/down ->
+										go through categories
+											- tap ->
+												add to list
+											- scroll forward ->
+												sub-categories
+			- swipe forward twice ->
+				map view
+					- tap -> 
+						list of stores
+							- scroll up/down ->
+								view stores (with sales?)
+									- tap ->
+										display location on map
+											- tap ->
+												start homing
+							- swipe forward ->
+								turn on sale noise?
+									- tap ->
+										ambient sale navigation sound on
+			- swipe down, if sounds are playing ->
+				list of ui sounds playing
+					- scroll down to sound ->
+						select the one you want to stop
+							- tap ->
+								do you want to stop playing (this sound)?
+									- tap ->
+										sound stops
+			- tap or nod ->
+				display off
