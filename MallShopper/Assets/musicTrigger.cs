@@ -14,6 +14,7 @@ public class musicTrigger : MonoBehaviour {
 		if(other.gameObject.name == "User")
 		{
 			audio.clip = thisMusic;
+			audio.volume = 0.8f;
 			audio.Play();
 
 		}
