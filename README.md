@@ -1,5 +1,2 @@
-CS4590
-======
-Shopping.................................. with Google Glass................... because the thing you DEFINETLY want to do at the mall is look like a huge NERD
-======
-NERD
+the unchanged files from 7/21
+<a href="https://www.youtube.com/watch?v=nfYK8wvvU90">listen to the song</a>
