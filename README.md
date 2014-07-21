@@ -1,5 +1,7 @@
-CS4590
-======
-Shopping.................................. with Google Glass................... because the thing you DEFINETLY want to do at the mall is look like a huge NERD
-======
-NERD
+anna's changes<br>
+<br>
+implemented:<br>
+-nothing yet<br>
+<br>
+songs:<br>
+<a href="https://www.youtube.com/watch?v=no-im2ULYJ4">your ex lover is dead</a><br>
