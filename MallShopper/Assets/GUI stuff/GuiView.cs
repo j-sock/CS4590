@@ -68,7 +68,6 @@ public class GuiView : MonoBehaviour {
 	}
 
 	void Update() {
-		Debug.Log(scrollPos);
 		timer++;
 		if (Input.GetKeyDown("f"))
 			toggleScreen();
@@ -76,9 +75,9 @@ public class GuiView : MonoBehaviour {
 			flipRight();
 		else if (Input.GetKeyDown("q"))
 			flipLeft();
-		if (Input.GetKeyDown("x")) 
+		if (Input.GetKeyDown("z")) 
 			scrollDown();
-		else if (Input.GetKeyDown("2"))
+		else if (Input.GetKeyDown("x"))
 			scrollUp();
 	}
 
