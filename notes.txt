@@ -1,0 +1,15 @@
+notes on making alarms from the sonification handbook
+
+"For Patterson, the alarm is designed with
+a structural hierarchy (see Fig.
+19.1
+): the base unit is a 100 to 300 ms long pulse. This
+pulse is repeated several times, at different pitches and/or intensity, using different tempi.
+The resulting sound, made up of these consecutive components, is a sound burst. This
+burst is about 2s long, and is perceived as a rhythmic atonal melody. The combination of
+bursts makes up the entire alarm.
+The alarm provides for silences between bursts, to give the crew time to communicate and
+react adequately. Edworthy et al.’s study (1991) shows that the faster the rate, the higher
+the pitch and the more irregular the harmonics, the greater the perceived urgency."
+
+http://sonification.de/handbook/index.php/chapters/chapter19/
