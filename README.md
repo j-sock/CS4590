@@ -1,7 +1,7 @@
 anna's changes<br>
 <br>
 implemented:<br>
--nothing yet<br>
+-store data objects have a script that gives info about each item in our pre-programmed list<br>
 <br>
 songs:<br>
 <a href="https://www.youtube.com/watch?v=no-im2ULYJ4">your ex lover is dead</a><br>
