@@ -20,8 +20,10 @@ public class storeAlert : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
+		Debug.Log(checkPosition(other.transform));
 		if(other.transform.parent.gameObject.name=="StoreData" &&
 			checkPosition(other.transform)) {
+
 			data = other.GetComponent<storeData>();
 			//some minor calculations 
 			scaleBase(data);

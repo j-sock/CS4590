@@ -14,7 +14,7 @@ public class GUI : MonoBehaviour {
 	
 	public List<GameObject> items;
 	
-	private ItemTracker tracker;
+	//private ItemTracker tracker;
 	
 	private int floor;
 	private bool show;
@@ -25,7 +25,7 @@ public class GUI : MonoBehaviour {
 	private int mapIndex;
 	
 	void Start() {
-		tracker = GetComponent<ItemTracker>();
+		//tracker = GetComponent<ItemTracker>();
 	}
 	
 	void Update() {
@@ -34,14 +34,14 @@ public class GUI : MonoBehaviour {
 				if(!display) {
 					listIndex++;
 					if(listIndex >= items.Count) listIndex = 0;
-					tracker.startTracking(items[listIndex].transform);
+					//tracker.startTracking(items[listIndex].transform);
 				}
 			}
 			if(Input.GetKeyDown("q")) {
 				if(!display) {
 					listIndex--;
 					if(listIndex < 0) listIndex = items.Count-1;
-					tracker.startTracking(items[listIndex].transform);
+					//tracker.startTracking(items[listIndex].transform);
 				}
 			}
 			if(display) {
@@ -81,7 +81,7 @@ public class GUI : MonoBehaviour {
 			map2.SetActive(true);
 		} else {
 			listText.SetActive(true);
-			tracker.startTracking(items[listIndex].transform);
+			//tracker.startTracking(items[listIndex]);
 		}
 		floorText.SetActive(true);
 		moneyText.SetActive(true);
@@ -97,7 +97,7 @@ public class GUI : MonoBehaviour {
 		background.SetActive(false);
 		map1.SetActive(false);
 		map2.SetActive(false);
-		tracker.mute();
+		//tracker.mute();
 	}
 	
 	void OnTriggerEnter(Collider other) {
