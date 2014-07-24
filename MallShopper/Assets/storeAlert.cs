@@ -23,7 +23,6 @@ public class storeAlert : MonoBehaviour {
 		Debug.Log("S9 TRIGGERED");
 		if(c.transform.parent.gameObject.name=="StoreData" &&
 			checkPosition(c.transform)) {
-		if(c.transform.parent.gameObject.name=="StoreData") {
 			data = c.GetComponent<storeData>();
 			//some minor calculations 
 			scaleBase(data);
