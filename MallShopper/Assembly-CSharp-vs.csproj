@@ -61,7 +61,9 @@
      <Compile Include="Assets\Tutorial\Scripts\CollisionAudioHandlerExample.cs" />
      <Compile Include="Assets\Tutorial\Scripts\ExtensionMethods.cs" />
      <Compile Include="Assets\Tutorial\Scripts\SuperSized.cs" />
+     <Compile Include="Assets\itemData.cs" />
      <Compile Include="Assets\musicTrigger.cs" />
+     <Compile Include="Assets\storeAlert.cs" />
      <Compile Include="Assets\storeData.cs" />
      <Compile Include="Assets\targetScript.cs" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />

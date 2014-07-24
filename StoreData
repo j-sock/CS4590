@@ -1,145 +1,190 @@
 Store Data
 Aberchrombie:
 	tshirt:
-		yes they have it
-		yes it's in my size
-		yes it's on sale
+		1
+		1
+		25
 		22.50
 	blouse:
-		yes they have it
-		yes it's in my size
-		no it's not on sale
+		1
+		1
+		0
 		58.00
 	jeans:
-		yes they have it
-		yet it's in my size
-		yes it's on sale
+		1
+		1
+		50
 		44.00
 	sneakers:
-		no they don't have it
+		-1
+		-1
+		-1
+		0
 Yankee Candle:
 	tshirt:
-		no they don't have it
+		-1
+		-1
+		-1
+		0
 	blouse:
-		no they don't have it
+		-1
+		-1
+		-1
+		0
 	jeans:
-		no they don't have it
+		-1
+		-1
+		-1
+		0
 	sneakers:
-		no they don't have it
+		-1
+		-1
+		-1
+		0
 Claire's:
 	tshirt:
-		no they don't have it
+		-1
+		-1
+		-1
+		0
 	blouse:
-		no they don't have it
+		-1
+		-1
+		-1
+		0
 	jeans:
-		no they don't have it
+		-1
+		-1
+		-1
+		0
 	sneakers:
-		no they don't have it
+		-1
+		-1
+		-1
+		0
 American Eagle:
 	tshirt:
-		yes they have it
-		yes it's in my size
-		no it's not on sale
+		1
+		1
+		0
 		19.95
 	blouse:
-		yes they have it
-		yes it's in my size
-		no it's not on sale
+		1
+		1
+		0
 		34.95
 	jeans:
-		yes they have it
-		yet it's in my size
-		no it's not on sale
+		1
+		1
+		0
 		44.95
 	sneakers:
-		yes they have it
-		yes it's in my size
-		not it's not on sale
+		1
+		1
+		0
 		45.00
 Payless:
 	tshirt:
-		no they don't have it
+		-1
+		-1
+		-1
+		0
 	blouse:
-		no they don't have it
+		-1
+		-1
+		-1
+		0
 	jeans:
-		no they don't have it
+		-1
+		-1
+		-1
+		0
 	sneakers:
-		yes they have it
-		yes it's in my size
-		yes it's on sale
+		1
+		0
+		30
 		24.99
 Hot Topic:
 	tshirt:
-		yes they have it
-		yes it's in my size
-		yes it's on sale
+		1
+		1
+		20
 		19.60
 	blouse:
-		no they don't have it
+		-1
+		-1
+		-1
+		0
 	jeans:
-		yes they have it
-		yet it's in my size
-		yes it's on sale
+		1
+		0
+		20
 		31.60
 	sneakers:
-		yes they have it
-		yes it's in my size
-		yes it's on sale
+		1
+		1
+		20
 		15.60
 Banana Republic:
 	tshirt:
-		no they don't have it
+		-1
+		-1
+		-1
+		0
 	blouse:
-		yes they have it
-		yes it's in my size
-		no it's not on sale
+		1
+		0
+		0
 		69.50
 	jeans:
-		yes they have it
-		yet it's in my size
-		no it's not on sale
+		1
+		0
+		0
 		89.50
 	sneakers:
-		no they don't have it
+		-1
+		-1
+		-1
+		0
 J Crew:
 	tshirt:
-		yes they have it
-		yes it's in my size
-		no it's not on sale
-		42.50
+		1
+		1
+		0
+		45
 	blouse:
-		yes they have it
-		yes it's in my size
-		no it's not on sale
-		98.00
+		1
+		1
+		0
+		98
 	jeans:
-		yes they have it
-		yet it's in my size
-		no it's not on sale
+		1
+		0
+		0
 		115.00
 	sneakers:
-		yes they have it
-		yes it's in my size
-		no it's not on sale
+		1
+		0
+		0
 		60.00
 Macy's:
 	tshirt:
-		yes they have it
-		yes it's in my size
-		yes it's on sale
+		1
+		0
+		25
 		14.99
 	blouse:
-		yes they have it
-		yes it's in my size
-		yes it's on sale
+		1
+		1
+		25
 		20.99
 	jeans:
-		yes they have it
-		yet it's in my size
-		yes it's on sale
+		1
+		1
+		25
 		40.99
 	sneakers:
-		yes they have it
-		yes it's in my size
-		no it's not on sale
+		1
+		1
+		0
 		50.00
