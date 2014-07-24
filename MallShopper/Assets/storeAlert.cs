@@ -20,7 +20,9 @@ public class storeAlert : MonoBehaviour {
 	}
 
 	void onTriggerEnter(Collider c) {
-		if(c.transform.parent.gameObject.name=="StoreData") {
+		Debug.Log("S9 TRIGGERED");
+		if(c.transform.parent.gameObject.name=="StoreData" &&
+			checkPosition(c.transform)) {
 			data = c.GetComponent<storeData>();
 			//some minor calculations 
 			scaleBase(data);
@@ -44,6 +46,14 @@ public class storeAlert : MonoBehaviour {
 				}
 			}
 		}
+	}
+
+	bool checkPosition(Transform t) {
+		if(t.position.z > 0 && transform.position.z < t.position.z + 12)
+			return true;
+		else if(t.position.z < 0 && transform.position.z > t.position.z - 12)
+			return true;
+		else return false;
 	}
 
 	void scaleBase(storeData d) {

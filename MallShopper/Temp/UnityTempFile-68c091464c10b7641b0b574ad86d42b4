@@ -43,7 +43,6 @@
 "Assets/First Person Controller/Scripts/First-Person Controller/MouseLook.cs"
 "Assets/First Person Controller/Scripts/First-Person Controller/PlatformInputController.cs"
 Assets/GUI.cs
-Assets/GuiView.cs
 Assets/ItemTracker.cs
 Assets/TrackingSound1Script.cs
 Assets/Tutorial/Scripts/CharacterForces.cs
