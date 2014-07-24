@@ -19,11 +19,11 @@ public class storeAlert : MonoBehaviour {
 		dealSound = dealObject.GetComponent<AudioSource>();
 	}
 
-	void onTriggerEnter(Collider c) {
+	void OnTriggerEnter(Collider other) {
 		Debug.Log("S9 TRIGGERED");
-		if(c.transform.parent.gameObject.name=="StoreData" &&
-			checkPosition(c.transform)) {
-			data = c.GetComponent<storeData>();
+		if(other.transform.parent.gameObject.name=="StoreData" &&
+			checkPosition(other.transform)) {
+			data = other.GetComponent<storeData>();
 			//some minor calculations 
 			scaleBase(data);
 			scaleLike(data);
@@ -62,14 +62,14 @@ public class storeAlert : MonoBehaviour {
 		if (d.blouse[0] == 1) volume += 0.25f;
 		if (d.jeans[0] == 1) volume += 0.25f;
 		if (d.sneakers[0] == 1) volume += 0.25f;
-		if (d.all[4] > 2) volume *= 0.75f;
-		if (d.all[3] < 2) volume *= 0.75f;
-		if (d.all[2] < 0) volume *= 0.75f;
+		if (d.all[3] > 2) volume *= 0.75f;
+		if (d.all[2] < 2) volume *= 0.75f;
+		if (d.all[1] < 0) volume *= 0.75f;
 		baseSound.volume = volume;
 	}
 
 	void scaleLike(storeData d) {
-		if (d.all[4] < 3) likeSound.volume = 0.75f;
+		if (d.all[3] < 3) likeSound.volume = 0.75f;
 		else likeSound.volume = 1.0f;
 	}
 
