@@ -20,7 +20,7 @@ public class storeAlert : MonoBehaviour {
 	}
 
 	void onTriggerEnter(Collider c) {
-		if(c.transform.parent.gameObject.name=="DataObjects") {
+		if(c.transform.parent.gameObject.name=="StoreData") {
 			data = c.GetComponent<storeData>();
 			//some minor calculations 
 			scaleBase(data);
@@ -31,7 +31,7 @@ public class storeAlert : MonoBehaviour {
 				baseSound.PlayOneShot(baseSound.clip, 1.0f);
 				likeSound.PlayOneShot(likeSound.clip,1.0f);
 				dealSound.PlayOneShot(dealSound.clip, 1.0f);
-				if (d.all[2] == 1) 
+				if (data.all[2] == 1) 
 					likeSound.PlayOneShot(likeSound.clip, 1.0f);
 			}
 			//doesn't have item
@@ -47,7 +47,7 @@ public class storeAlert : MonoBehaviour {
 	}
 
 	void scaleBase(storeData d) {
-		double volume = 0.0f;
+		float volume = 0.0f;
 		if (d.tShirt[0] == 1) volume += 0.25f;
 		if (d.blouse[0] == 1) volume += 0.25f;
 		if (d.jeans[0] == 1) volume += 0.25f;
@@ -64,7 +64,7 @@ public class storeAlert : MonoBehaviour {
 	}
 
 	void scaleDeal(storeData d) {
-		dealSound.pitch = (data.all[2] + (5 - data.all[3]))/10;
-		dealSound.volume = data.all[3]*2/10;
+		dealSound.pitch = (float)(data.all[2] + (5 - data.all[3]))/10;
+		dealSound.volume = (float)data.all[3]*2/10;
 	}
 }

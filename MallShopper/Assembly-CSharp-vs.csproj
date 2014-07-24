@@ -52,7 +52,6 @@
      <Compile Include="Assets\First Person Controller\Scripts\First-Person Controller\MouseLook.cs" />
      <Compile Include="Assets\First Person Controller\Scripts\First-Person Controller\PlatformInputController.cs" />
      <Compile Include="Assets\GUI.cs" />
-     <Compile Include="Assets\GuiView.cs" />
      <Compile Include="Assets\ItemTracker.cs" />
      <Compile Include="Assets\TrackingSound1Script.cs" />
      <Compile Include="Assets\Tutorial\Scripts\CharacterForces.cs" />
