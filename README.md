@@ -9,4 +9,4 @@ songs:<br>
 <a href="https://www.youtube.com/watch?v=no-im2ULYJ4">your ex lover is dead</a><br>
 <a href="http://youtu.be/-kPkkqxsjIY?list=PLmF02cVrpZlBUDnRllwAednlstFLSSe7a">this too shall pass</a><br>
 <a href="http://youtu.be/J7sU9uB8XtU?list=PLmF02cVrpZlBUDnRllwAednlstFLSSe7a">a little irony</a><br>
-<a href="https://www.youtube.com/watch?v=mwAUca79c4o">we might be giants</a><br>
+<a href="https://www.youtube.com/watch?v=mwAUca79c4o">we looked like giants</a><br>
