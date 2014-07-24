@@ -51,9 +51,8 @@
      <Compile Include="Assets\First Person Controller\Scripts\First-Person Controller\FPSInputController.cs" />
      <Compile Include="Assets\First Person Controller\Scripts\First-Person Controller\MouseLook.cs" />
      <Compile Include="Assets\First Person Controller\Scripts\First-Person Controller\PlatformInputController.cs" />
-     <Compile Include="Assets\GUI stuff\GUI.cs" />
-     <Compile Include="Assets\GUI stuff\GuiView.cs" />
-     <Compile Include="Assets\GUI stuff\ItemTracker.cs" />
+     <Compile Include="Assets\GUI.cs" />
+     <Compile Include="Assets\ItemTracker.cs" />
      <Compile Include="Assets\TrackingSound1Script.cs" />
      <Compile Include="Assets\Tutorial\Scripts\CharacterForces.cs" />
      <Compile Include="Assets\Tutorial\Scripts\CharacterObjectGun.cs" />
@@ -63,6 +62,8 @@
      <Compile Include="Assets\Tutorial\Scripts\SuperSized.cs" />
      <Compile Include="Assets\itemData.cs" />
      <Compile Include="Assets\musicTrigger.cs" />
+     <Compile Include="Assets\storeAlert.cs" />
+     <Compile Include="Assets\storeData.cs" />
      <Compile Include="Assets\targetScript.cs" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
   </ItemGroup>
