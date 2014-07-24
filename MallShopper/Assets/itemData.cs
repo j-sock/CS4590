@@ -7,5 +7,6 @@ public class itemData : MonoBehaviour {
 	public double demographic;
 	public double sale;
 	public double price;
+	public string storeName;
 
 }
