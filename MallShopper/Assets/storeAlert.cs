@@ -20,13 +20,10 @@ public class storeAlert : MonoBehaviour {
 	}
 
 	void onTriggerEnter(Collider c) {
-<<<<<<< HEAD
 		Debug.Log("S9 TRIGGERED");
 		if(c.transform.parent.gameObject.name=="StoreData" &&
 			checkPosition(c.transform)) {
-=======
 		if(c.transform.parent.gameObject.name=="StoreData") {
->>>>>>> origin/master
 			data = c.GetComponent<storeData>();
 			//some minor calculations 
 			scaleBase(data);
@@ -52,7 +49,6 @@ public class storeAlert : MonoBehaviour {
 		}
 	}
 
-<<<<<<< HEAD
 	bool checkPosition(Transform t) {
 		if(t.position.z > 0 && transform.position.z < t.position.z + 12)
 			return true;
@@ -61,8 +57,6 @@ public class storeAlert : MonoBehaviour {
 		else return false;
 	}
 
-=======
->>>>>>> origin/master
 	void scaleBase(storeData d) {
 		float volume = 0.0f;
 		if (d.tShirt[0] == 1) volume += 0.25f;
