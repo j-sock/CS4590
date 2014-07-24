@@ -1,10 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\GUI stuff\ItemTracker.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GUI.cs">
     <Files>
-      <File FileName="Assets\GUI stuff\GUI.cs" Line="71" Column="4" />
-      <File FileName="Assets\TrackingSound1Script.cs" Line="44" Column="21" />
-      <File FileName="Assets\GUI stuff\ItemTracker.cs" Line="14" Column="4" />
+      <File FileName="Assets/TrackingSound1Script.cs" Line="97" Column="5" />
+      <File FileName="Assets/musicTrigger.cs" Line="17" Column="19" />
+      <File FileName="Assets/GUI.cs" Line="1" Column="1" />
+      <File FileName="Assets/ItemTracker.cs" Line="1" Column="1" />
+      <File FileName="Assets/storeAlert.cs" Line="17" Column="1" />
+      <File FileName="Assets/storeData.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
