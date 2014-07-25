@@ -14,11 +14,9 @@ public class GUI : MonoBehaviour {
 	
 	public List<GameObject> items;
 	
-<<<<<<< HEAD
 	private TrackingSound1Script tracker;
-=======
 	//private ItemTracker tracker;
->>>>>>> 6320046259525719882592a9b393fd8d58663657
+
 	
 	private int floor;
 	private bool show;

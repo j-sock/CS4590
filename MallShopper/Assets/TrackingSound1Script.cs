@@ -6,6 +6,7 @@ public class TrackingSound1Script : MonoBehaviour {
 	public AudioClip radarSoundAbove;
 	public AudioClip radarSoundBelow;
 	public AudioClip ambient;
+	public bool audioIsMuted;
 
 	//public GameObject targetWeAreLookingAt;
 
@@ -46,10 +47,10 @@ public class TrackingSound1Script : MonoBehaviour {
 		 replace this with new way of determining floor */
 	}
 
-	public void startTracking(Transform item) {
+	/*public void startTracking(Transform item) {
 		currentTarget = item;
 		audio.volume = .5f;
-	}
+	}*/
 	
 	// Update is called once per frame
 	void Update()
@@ -71,13 +72,10 @@ public class TrackingSound1Script : MonoBehaviour {
 				} else if ((Vector3.Cross (forward, relativePos).y > 20)) {
 						//Debug.Log ("target is on the right. Angle is: " + Vector3.Cross (forward, relativePos).y);
 				}
-				//if player presses "y", switch to the next targetItem
-				if (Input.GetKeyUp (KeyCode.Y)) {
-						switchTarget ();
-				}
+
 
 				//mute option:
-				if (FPSInputController.GetKeyUp (KeyCode.M)) {
+				if (Input.GetKeyUp (KeyCode.M)) {
 						muteController ();	
 				}
 		}
