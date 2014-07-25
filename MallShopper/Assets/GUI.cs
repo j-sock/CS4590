@@ -37,22 +37,10 @@ public class GUI : MonoBehaviour {
 	void Update() {
 		if(show) {
 			if(Input.GetKeyDown("e")) {
-				if(!display) {
-					listIndex++;
-					if(listIndex >= categories.Count) listIndex = 0;
-					currentCategory = categories[listIndex];
-					currentItem = pickItem(currentCategory);					
-					tracker.startTracking(currentItem);
-				}
+				scroll (1);
 			}
 			if(Input.GetKeyDown("q")) {
-				if(!display) {
-					listIndex--;
-					if(listIndex < 0) listIndex = categories.Count-1;
-					currentCategory = categories[listIndex];
-					currentItem = pickItem(currentCategory);
-					tracker.startTracking(currentItem);					
-				}
+				scroll(0);
 			}
 			if(display) {
 				if(getFloor(transform) == 1) {
@@ -78,6 +66,26 @@ public class GUI : MonoBehaviour {
 			display = !display;
 			hide();
 			showUI(show, display);
+		}
+	}
+	
+	void scroll(int s) {
+		if(display) return;
+		switch(s) {
+		case 0:
+			listIndex--;
+			if(listIndex < 0) listIndex = categories.Count-1;
+			currentCategory = categories[listIndex];
+			currentItem = pickItem(currentCategory);
+			tracker.startTracking(currentItem);	
+			break;
+		case 1:
+			listIndex++;
+			if(listIndex >= categories.Count) listIndex = 0;
+			currentCategory = categories[listIndex];
+			currentItem = pickItem(currentCategory);					
+			tracker.startTracking(currentItem);
+			break;
 		}
 	}
 	
@@ -110,8 +118,11 @@ public class GUI : MonoBehaviour {
 		tracker.mute();
 	}
 	
-	void buyItem(Item i) {
-		
+	public void buyItem(Item i) {
+		categories.Remove(currentCategory);
+		moneySpent += i.price;
+		i.transform.gameObject.SetActive(false);
+		scroll(1);
 	}
 	
 	Item pickItem(GameObject category) {

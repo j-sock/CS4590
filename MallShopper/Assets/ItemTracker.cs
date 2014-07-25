@@ -3,19 +3,28 @@ using System.Collections;
 
 public class ItemTracker : MonoBehaviour {
 	
+	private GUI gui;
 	private Item current;
-	public AudioClip ambient;
+	
+	
+	public AudioClip chime;
+	public AudioClip buySound;
+	public AudioClip floor1;
+	public AudioClip floor2;
 	
 	public GameObject s1f1;
 	public GameObject s1f2;
 	public GameObject s2f1;
 	public GameObject s2f2;
 	
+	private float lastDistance;
+	
 	void Start () {
-		 audio.clip = ambient;
-		 audio.volume = 0;
-		 audio.loop = true;
-		 audio.Play();
+		gui = GetComponent<GUI>();
+		audio.clip = chime;
+		audio.volume = 0;
+		audio.loop = true;
+		audio.Play();
 	}	
 	
 	void Update () {
@@ -26,14 +35,21 @@ public class ItemTracker : MonoBehaviour {
 		} else {
 			target = pickStairs().transform;
 		}
-		
 		float distance = Vector3.Distance(transform.position, target.position);
-		if(Vector3.Distance(current.transform.position, transform.position) < 2f) {
-			//buy
-			mute();
+		if(lastDistance == distance) return;
+		lastDistance = distance;
+		int dFloor = getFloor(current.transform) - getFloor(transform);
+		Vector3 dirToTarget = transform.position - target.position;
+		dirToTarget.y = 0;
+		dirToTarget = dirToTarget / -distance;
+		Vector3 facing = transform.forward / transform.forward.magnitude;
+		float angle = Vector3.Angle(facing, dirToTarget);
+		audio.volume = .75f - angle / 180;
+		
+		if(Vector3.Distance(current.transform.position, transform.position) < 5f) {
+		audio.PlayOneShot(buySound, 1f);
+			gui.buyItem(current);
 		}
-		float vertDistance = target.position.y - transform.position.y;
-		audio.pitch = vertDistance / 20 + 1;
 	}
 	
 	GameObject pickStairs() {
@@ -56,8 +72,16 @@ public class ItemTracker : MonoBehaviour {
 	}
 	
 	public void startTracking(Item item) {
+		AudioClip clip = null;
 		current = item;
-		audio.volume = .5f;
+		if(getFloor(item.transform) == 1) {
+			clip = floor1;
+		} else {
+			clip = floor2;
+		}
+		audio.volume = 1f;
+		if(getFloor(transform) != getFloor(item.transform))
+			audio.PlayOneShot(clip, 1f);
 	}
 	
 	public void mute() {
