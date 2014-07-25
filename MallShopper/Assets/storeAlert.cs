@@ -20,7 +20,7 @@ public class storeAlert : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		Debug.Log("S9 TRIGGERED");
+		Debug.Log(checkPosition(other.transform));
 		if(other.transform.parent.gameObject.name=="StoreData" &&
 			checkPosition(other.transform)) {
 			data = other.GetComponent<storeData>();
@@ -30,6 +30,7 @@ public class storeAlert : MonoBehaviour {
 			scaleDeal(data);
 			//has item
 			if(data.all[0] == 1) {
+				Debug.Log("got an item yo");
 				baseSound.PlayOneShot(baseSound.clip, 1.0f);
 				likeSound.PlayOneShot(likeSound.clip,1.0f);
 				dealSound.PlayOneShot(dealSound.clip, 1.0f);
@@ -39,7 +40,7 @@ public class storeAlert : MonoBehaviour {
 			//doesn't have item
 			else {
 				//in your demographic
-				if(data.all[2] == 1) {
+				if(data.all[1] == 1) {
 					//still plays a sound because capitalism 
 					likeSound.PlayOneShot(likeSound.clip, 1.0f);
 					dealSound.PlayOneShot(likeSound.clip, 1.0f);
