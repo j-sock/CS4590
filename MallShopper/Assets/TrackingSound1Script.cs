@@ -5,6 +5,7 @@ public class TrackingSound1Script : MonoBehaviour {
 	public AudioClip radarSoundLevel;
 	public AudioClip radarSoundAbove;
 	public AudioClip radarSoundBelow;
+	public AudioClip ambient;
 
 	//public GameObject targetWeAreLookingAt;
 
@@ -20,8 +21,14 @@ public class TrackingSound1Script : MonoBehaviour {
 	private targetScript thisTarget;
 
 
+	
+	
 	// Use this for initialization
 	void Start () {
+		audio.clip = ambient;
+		audio.volume = 0.0f;
+		audio.loop = true;
+		audio.Play();
 		currentTarget = 0;
 		timeWait = 3;
 		keepPlaying = true;
@@ -31,38 +38,60 @@ public class TrackingSound1Script : MonoBehaviour {
 		//if targetOnFloorTwo is true, target is on second floor
 
 		//get the information from the target gameobject
+
+		/* replace this with new way of determining floor
 		thisTarget = targetArray [currentTarget].GetComponent<targetScript>();
 		targetOnFloorTwo = thisTarget.isTargetOnFloorTwo;
 		Debug.Log ("target is on floor 2 = " + targetOnFloorTwo);
+		 replace this with new way of determining floor */
+	}
+
+	public void startTracking(Transform item) {
+		currentTarget = item;
+		audio.volume = .5f;
 	}
 	
 	// Update is called once per frame
 	void Update()
 	{
 				//get the distance between the user and the target item
-				distanceFromTarget = Vector3.Distance (transform.position, targetArray[currentTarget].position);
+				distanceFromTarget = Vector3.Distance (transform.position, targetArray [currentTarget].position);
 				//Debug.Log ("distance from target = " + distanceFromTarget);
 
 				//get the direction the user is facing based on where the object is.
 		
-				var relativePos = targetArray[currentTarget].position - transform.position;
+				var relativePos = targetArray [currentTarget].position - transform.position;
 		
 				var forward = transform.forward;
 				var angle = Vector3.Angle (relativePos, forward);
-		if ((Vector3.Cross (forward, relativePos).y < 20) && (Vector3.Cross (forward, relativePos).y > -20)) {
-			//Debug.Log ("target is in the center. Angle is: " + Vector3.Cross (forward, relativePos).y);
-				} 
-		else if ((Vector3.Cross (forward, relativePos).y < -20)){
-			//Debug.Log ("target is on the left. Angle is: " + Vector3.Cross (forward, relativePos).y);
+				if ((Vector3.Cross (forward, relativePos).y < 20) && (Vector3.Cross (forward, relativePos).y > -20)) {
+						//Debug.Log ("target is in the center. Angle is: " + Vector3.Cross (forward, relativePos).y);
+				} else if ((Vector3.Cross (forward, relativePos).y < -20)) {
+						//Debug.Log ("target is on the left. Angle is: " + Vector3.Cross (forward, relativePos).y);
+				} else if ((Vector3.Cross (forward, relativePos).y > 20)) {
+						//Debug.Log ("target is on the right. Angle is: " + Vector3.Cross (forward, relativePos).y);
 				}
-		else if ((Vector3.Cross (forward, relativePos).y > 20)){
-			//Debug.Log ("target is on the right. Angle is: " + Vector3.Cross (forward, relativePos).y);
+				//if player presses "y", switch to the next targetItem
+				if (Input.GetKeyUp (KeyCode.Y)) {
+						switchTarget ();
+				}
+
+				//mute option:
+				if (FPSInputController.GetKeyUp (KeyCode.M)) {
+						muteController ();	
+				}
 		}
-		//if player presses "y", switch to the next targetItem
-		if (Input.GetKeyUp(KeyCode.Y)){
-			switchTarget();
+
+		public void muteController(){
+			if (audioIsMuted == true){
+				audioIsMuted = false;
+				audio.volume = 5.0f;
 		}
-			
+			else{
+				audioIsMuted = true;
+				audio.volume = 0.0f;
+			}
+		
 		}
 
 	IEnumerator SoundOut()
@@ -109,7 +138,7 @@ public class TrackingSound1Script : MonoBehaviour {
 		}
 	}
 
-	void switchTarget(){
+/*	void switchTarget(){
 		//move the target up one and get the new information from it about its location
 			currentTarget = currentTarget + 1;
 			if (currentTarget >= targetArray.Length){
@@ -119,8 +148,19 @@ public class TrackingSound1Script : MonoBehaviour {
 				targetOnFloorTwo = thisTarget.isTargetOnFloorTwo;
 				Debug.Log ("CurrentTarget is " + currentTarget + ". This is the " + targetArray[currentTarget].gameObject.name + " and floorTwo is " + targetOnFloorTwo);
 		}
+		*/
 }
 
+/* List Info:
+List gs = new List();
+Transform[] ts = gameObject.GetComponentsInChildren<Transform>();
+if (ts == null)
+	return gs;
+foreach (Transform t in ts) {
+	if (t != null && t.gameobject != null)
+		gs.Add(t.gameobject);
+}
+return gs;
+*/
 
-	
 
