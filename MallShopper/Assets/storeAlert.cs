@@ -23,7 +23,6 @@ public class storeAlert : MonoBehaviour {
 		Debug.Log(checkPosition(other.transform));
 		if(other.transform.parent.gameObject.name=="StoreData" &&
 			checkPosition(other.transform)) {
-
 			data = other.GetComponent<storeData>();
 			//some minor calculations 
 			scaleBase(data);
@@ -31,6 +30,7 @@ public class storeAlert : MonoBehaviour {
 			scaleDeal(data);
 			//has item
 			if(data.all[0] == 1) {
+				Debug.Log("got an item yo");
 				baseSound.PlayOneShot(baseSound.clip, 1.0f);
 				likeSound.PlayOneShot(likeSound.clip,1.0f);
 				dealSound.PlayOneShot(dealSound.clip, 1.0f);
@@ -77,6 +77,5 @@ public class storeAlert : MonoBehaviour {
 	void scaleDeal(storeData d) {
 		dealSound.pitch = (float)(data.all[2] + (5 - data.all[3]))/10;
 		dealSound.volume = (float)data.all[3]*2/10;
-		Debug.Log(dealSound.pitch + " " +dealSound.volume);
 	}
 }
