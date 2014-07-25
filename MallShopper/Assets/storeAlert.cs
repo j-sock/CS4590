@@ -14,13 +14,13 @@ public class storeAlert : MonoBehaviour {
 	private storeData data;
 
 	void Start() {
-		baseSound = baseObject.GetComponent<AudioSource>();
-		likeSound = likeObject.GetComponent<AudioSource>();
-		dealSound = dealObject.GetComponent<AudioSource>();
+		//baseSound = baseObject.GetComponent<AudioSource>();
+		//likeSound = likeObject.GetComponent<AudioSource>();
+		//dealSound = dealObject.GetComponent<AudioSource>();
 	}
 
 	void OnTriggerEnter(Collider other) {
-		Debug.Log(checkPosition(other.transform));
+		//Debug.Log(checkPosition(other.transform));
 		if(other.transform.parent.gameObject.name=="StoreData" &&
 			checkPosition(other.transform)) {
 			data = other.GetComponent<storeData>();

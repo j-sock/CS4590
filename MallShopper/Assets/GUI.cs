@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using SimpleJSON;
 
 public class GUI : MonoBehaviour {
 
+	private ItemTracker tracker;
+	
+	public TextAsset jsonString;
 	
 	public GameObject floorText;
 	public GameObject moneyText;
@@ -12,22 +16,22 @@ public class GUI : MonoBehaviour {
 	public GameObject map1;
 	public GameObject map2;
 	
-	public List<GameObject> items;
-	
-	private TrackingSound1Script tracker;
-	//private ItemTracker tracker;
-
-	
-	private int floor;
-	private bool show;
-	private bool display; //true = map, false = list
-	
-	private double moneySpent;
+	public string demo;
+	public float priceCap;
+		
+	public List<GameObject> categories;
+	private GameObject currentCategory;
+	private Item currentItem;
 	private int listIndex;
-	private int mapIndex;
+	
+	private bool show;
+	private bool display; //true = map, false = list	
+	private double moneySpent;
 	
 	void Start() {
-		//tracker = GetComponent<ItemTracker>();
+		tracker = GetComponent<ItemTracker>();
+		currentCategory = categories[0];
+		currentItem = pickItem(currentCategory);
 	}
 	
 	void Update() {
@@ -35,31 +39,35 @@ public class GUI : MonoBehaviour {
 			if(Input.GetKeyDown("e")) {
 				if(!display) {
 					listIndex++;
-					if(listIndex >= items.Count) listIndex = 0;
-					//tracker.startTracking(items[listIndex].transform);
+					if(listIndex >= categories.Count) listIndex = 0;
+					currentCategory = categories[listIndex];
+					currentItem = pickItem(currentCategory);					
+					tracker.startTracking(currentItem);
 				}
 			}
 			if(Input.GetKeyDown("q")) {
 				if(!display) {
 					listIndex--;
-					if(listIndex < 0) listIndex = items.Count-1;
-					//tracker.startTracking(items[listIndex].transform);
+					if(listIndex < 0) listIndex = categories.Count-1;
+					currentCategory = categories[listIndex];
+					currentItem = pickItem(currentCategory);
+					tracker.startTracking(currentItem);					
 				}
 			}
 			if(display) {
-				if(floor == 1) {
+				if(getFloor(transform) == 1) {
 					map2.SetActive(false);
 					map1.SetActive(true);
-				} else if(floor == 2) {
+				} else {
 					map1.SetActive(false);
 					map2.SetActive(true);
 				}
 				headerText.guiText.text = "Map";
 			} else {
-				listText.guiText.text = items[listIndex].name;
+				if(currentCategory != null) listText.guiText.text = currentCategory.name;
 				headerText.guiText.text = "List";
 			}
-			floorText.guiText.text = "Floor " + floor.ToString();
+			floorText.guiText.text = "Floor " + getFloor(transform).ToString();
 			moneyText.guiText.text = "$" + moneySpent.ToString();
 		}
 		if(Input.GetKeyDown("f")) {
@@ -83,7 +91,7 @@ public class GUI : MonoBehaviour {
 			map2.SetActive(true);
 		} else {
 			listText.SetActive(true);
-			//tracker.startTracking(items[listIndex]);
+			tracker.startTracking(currentItem);
 		}
 		floorText.SetActive(true);
 		moneyText.SetActive(true);
@@ -99,15 +107,31 @@ public class GUI : MonoBehaviour {
 		background.SetActive(false);
 		map1.SetActive(false);
 		map2.SetActive(false);
-		//tracker.mute();
+		tracker.mute();
 	}
 	
-	void OnTriggerEnter(Collider other) {
-		if (other.name == "secondFloor") {
-			floor = 2;
+	void buyItem(Item i) {
+		
+	}
+	
+	Item pickItem(GameObject category) {
+		var json = JSONNode.Parse(jsonString.text);		
+		string store = "";
+		int min = int.MaxValue;
+		for(int i=0; i<2; i++) {
+			int p = int.Parse(json[category.name][i]["price"]);
+			string d = json[category.name][i]["demo"];
+			if(d.Equals(demo) && p < min && p <= priceCap) {
+				min = p;
+				store = json[category.name][i]["store"];
+			}
 		}
-		else if (other.name == "firstFloor") {
-			floor = 1;
-		}
+		Transform t = category.transform.Find(store);
+		return new Item(t, min, store);
+	}
+	
+	int getFloor(Transform t) {
+		if(t.position.y < 6) return 1;
+		return 2;
 	}
 }
